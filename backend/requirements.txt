@@ -1,0 +1,15 @@
+
+fastapi==0.116.1
+pillow==11.3.0
+numpy==1.26.4
+pandas==2.2.3
+pytesseract==0.3.13
+torch==2.6.0
+ultralytics==8.3.189
+uvicorn==0.35.0
+psycopg2-binary==2.9.10
+python-multipart
+PyJWT==2.10.1
+python-jose[cryptography]==3.1.0
+requests==2.32.0
+opencv-python-headless==4.11.0.86

@@ -1,0 +1,32 @@
+#services = containers
+services:
+  #container for postgres db
+  db: #service name
+    image: postgres:14 #uses the official PostgreSQL v14 image from Docker Hub.
+    container_name: expiry_db #the actual container will have this name when running
+    env_file:
+      - .env #references env file with all sensitive data
+    environment:
+      POSTGRES_DB: expirydb
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data #persists database data on machine even after del the container
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql #runs schema.sql automatically when the container starts for the first time.
+    
+  backend:
+    container_name: expiry_backend
+    depends_on:
+      - db #which means this wont start until db does
+    environment:
+      DB_NAME: expirydb
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_HOST: db #db not local so containers talk to each other
+      DB_PORT: 5432
+    ports:
+      - "8000:8000" #webhost port
+
+#tells docker to create a named volume called postgres_data
+volumes:
+  postgres_data:

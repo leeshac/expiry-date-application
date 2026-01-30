@@ -1,0 +1,46 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+#dependencies
+frontend/expiryApp/node_modules/
+
+#expo
+frontend/expiryApp/.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+#backend
+venv/
+__pycache__/
+*.pyc
+
+#metro
+.metro-health-check*
+
+#debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+#macOS
+.DS_Store
+*.pem
+
+#typescript
+*.tsbuildinfo
+
+#not sure what this is referring to
+app-example
+
+#environment variables
+.env
+.env.*
