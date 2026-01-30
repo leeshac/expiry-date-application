@@ -15,6 +15,7 @@ services:
       - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql #runs schema.sql automatically when the container starts for the first time.
     
   backend:
+    build: ./backend #points to Dockerfile
     container_name: expiry_backend
     depends_on:
       - db #which means this wont start until db does
