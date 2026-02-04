@@ -8,7 +8,7 @@ const DeleteItems = ({ itemId, closePopup, removeItem }) => {
     try {
       const token = await getToken({});
       const response = await fetch(
-        `http://192.168.1.27:8000/del-item?id=${itemId}`, //sending id in the query string
+        `http://192.168.1.27:8000/del-item?id=${itemId}`, //sending id in the query string. TODO: needs to be changing to aws endpoint later
         {
           method: "DELETE",
           headers: {

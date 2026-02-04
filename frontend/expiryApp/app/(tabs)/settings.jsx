@@ -18,7 +18,7 @@ const Settings = () => {
   const handleApplyChanges = () => {
     console.log("Notifications:", notificationsEnabled);
     console.log("Reminder days:", reminderDays);
-    // Add your logic to save these settings
+    //TODO: needs to be modified
   };
 
   return (

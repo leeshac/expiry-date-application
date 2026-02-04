@@ -44,7 +44,7 @@ export default function ItemList({
     const fetchItems = async () => {
       try {
         const token = await getToken({});
-        const response = await fetch("http://192.168.1.27:8000/items", {
+        const response = await fetch("http://192.168.1.27:8000/items", { //TODO: needs to be changing to aws endpoint later
           //JWT token for verifying the signed-in user on the backend
           method: "GET",
           headers: {

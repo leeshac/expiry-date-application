@@ -75,7 +75,7 @@ export default function AddItem() {
       });
 
       const response = await fetch(
-        "http://192.168.1.27:8000/process-expiry-date",
+        "http://192.168.1.27:8000/process-expiry-date", //TODO: needs to be changing to aws endpoint later
         {
           method: "POST",
           body: formData,
