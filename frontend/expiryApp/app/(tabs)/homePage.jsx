@@ -35,7 +35,7 @@ export default function Page() {
       <View style={{ flex: 1 }}>
         <SignedIn>
           <View style={styles.container}>
-            {/* Contains the date and search bar */}
+            {/*contains date and search bar */}
             <View>
               <Text style={styles.mainTitle}>{formattedDate}</Text>
               <View style={styles.containersearch}>
@@ -49,7 +49,7 @@ export default function Page() {
               </View>
             </View>
 
-            {/* Contains the Items, Filtering, Title */}
+            {/*contains items, filtering, title */}
             <View>
               <View style={styles.containeritemsbar}>
                 <Text style={styles.itemsText}>Items</Text>
@@ -84,7 +84,7 @@ export default function Page() {
                 </View>
               </View>
 
-              {/* Contains List of Items */}
+              {/*contains list of items */}
               <View style={styles.containeritemlist}>
                 <ItemList
                   sortByExpiry={sortByExpiry} //passing to itemlist as a prop
