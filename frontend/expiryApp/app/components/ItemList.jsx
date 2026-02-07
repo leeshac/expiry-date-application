@@ -61,7 +61,7 @@ export default function ItemList({
           setItemsList([]);
           return;
         }
-        // backend returns array of items with keys: id, name, expiry_date, image_url
+        //backend returns array of items with keys: id, name, expiry_date, image_url
         const formattedItems = data.items.map((item) => ({
           id: item.id,
           name: item.name,
@@ -92,11 +92,11 @@ export default function ItemList({
   //return defines what is rendered
   //keyExtractor tells FlatList: “Use this value as the unique key for each item.”
   return (
-    <FlatList
+    <FlatList //optimised for large lists. only renders items visible on screen
       data={displayedItems}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item) => item.id.toString()} //id to string because keys should be strings in react.
       renderItem={renderItem}
-      numColumns={3}
+      numColumns={3} //number of columns in the grid
       columnWrapperStyle={{
         // spacing between items in a row
         justifyContent: "flex-start",
