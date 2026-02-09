@@ -19,6 +19,8 @@ services:
     container_name: expiry_backend
     depends_on:
       - db #which means this wont start until db does
+    env_file:
+    - .env
     environment:
       DB_NAME: expirydb
       DB_USER: ${POSTGRES_USER}
