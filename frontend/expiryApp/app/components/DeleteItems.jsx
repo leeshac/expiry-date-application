@@ -3,12 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const DeleteItems = ({ itemId, closePopup, removeItem }) => {
   const { getToken } = useAuth();
+  const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
+
 
   const DelItem = async () => {
     try {
       const token = await getToken({});
-      const response = await fetch(
-        `http://192.168.1.27:8000/del-item?id=${itemId}`, //sending id in the query string. TODO: needs to be changing to aws endpoint later
+      const response = await fetch(`${API_BASE_URL}/del-item?id=${itemId}`, //sending id in the query string.
         {
           method: "DELETE",
           headers: {
@@ -16,7 +17,7 @@ const DeleteItems = ({ itemId, closePopup, removeItem }) => {
           },
         }
       );
-
+      
       const data = await response.json();
 
       if (data.status === "success") {

@@ -36,6 +36,8 @@ const ConfirmItem = () => {
   const showDatePicker = () => setDatePickerVisibility(true);
   const hideDatePicker = () => setDatePickerVisibility(false);
 
+  const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
+
   // Update expiry date when user picks a date
   const handleConfirm = (date) => {
     setExpiryDate(date);
@@ -61,7 +63,7 @@ const ConfirmItem = () => {
     );
 
     try {
-      const response = await fetch("http://192.168.1.27:8000/add-item", {
+      const response = await fetch(`${API_BASE_URL}/add-item`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

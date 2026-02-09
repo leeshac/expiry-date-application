@@ -37,6 +37,7 @@ export default function ItemList({
 
   const [itemsList, setItemsList] = useState([]);
   const { getToken } = useAuth();
+  const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
 
   //useeffect tells us there is a side effect happening as a result of a state change
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function ItemList({
     const fetchItems = async () => {
       try {
         const token = await getToken({});
-        const response = await fetch("http://192.168.1.27:8000/items", { //TODO: needs to be changing to aws endpoint later
+        const response = await fetch(`${API_BASE_URL}/items`, {
           //JWT token for verifying the signed-in user on the backend
           method: "GET",
           headers: {

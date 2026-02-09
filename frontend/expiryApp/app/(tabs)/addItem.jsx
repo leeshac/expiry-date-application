@@ -13,7 +13,8 @@ import {
 export default function AddItem() {
   const [imageUri, setImageUri] = useState(null); //trackes state of the url of image
   const router = useRouter();
-
+  const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
+  
   //request camera permission
   //async allows several requests to run at once
   //waits for approval, if not alert shows a message
@@ -74,8 +75,7 @@ export default function AddItem() {
         name: `image.${fileType}`,
       });
 
-      const response = await fetch(
-        "http://192.168.1.27:8000/process-expiry-date", //TODO: needs to be changing to aws endpoint later
+      const response = await fetch(`${API_BASE_URL}/process-expiry-date`,
         {
           method: "POST",
           body: formData,
