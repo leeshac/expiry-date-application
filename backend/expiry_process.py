@@ -261,6 +261,3 @@ def process_expiry_date(image_path):
     results = convert_to_date(converted_dates)
 
     return results
-
-results = process_expiry_date("temp_image.jpg")
-print("Final extracted expiry dates:", results)

@@ -2,6 +2,7 @@
 
 #folder
 /plans
+/backend/tests
 
 #dependencies
 frontend/expiryApp/node_modules/
