@@ -14,6 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql/data #persists database data on machine even after del the container
       - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql #runs schema.sql automatically when the container starts for the first time.
     
+  #container for the backend application
   backend:
     build: ./backend #points to Dockerfile
     container_name: expiry_backend
@@ -26,7 +27,7 @@ services:
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_HOST: db #db not local so containers talk to each other
-      DB_PORT: 5432
+      DB_PORT: 5432 #so backend knows which port to use to connect to db
     ports:
       - "8000:8000" #webhost port
 
